@@ -1,0 +1,32 @@
+[
+    {
+        "nombre": "Mochila Blass Academy",
+        "precio": "$48.30",
+        "descripcion": "Carga todas tus cosas con la mochila perfecta para tus materiales escolares"
+    },
+    {
+        "nombre": "Cuaderno Bond",
+        "precio": "$13.51",
+        "descripcion": "Cuaderno perfecto para poder escribir todas tus ideas"
+    },
+    {
+        "nombre": "Lapicero Tinta Negra",
+        "precio": "$3.85",
+        "descripcion": "Lapicero de tinta negra china"
+    },
+    {
+        "nombre": "Colores",
+        "precio": "$9.75",
+        "descripcion": "Colorea tus dibujos con este set de colores"
+    },
+    {
+        "nombre": "Pack de Resaltadores",
+        "precio": "$5.62",
+        "descripcion": "Conjunto de resaltadores para que tus apuntes destaquen"
+    },
+    {
+        "nombre": "Botella Tomatodo",
+        "precio": "$21.48",
+        "descripcion": "Tomatodo temperado que permite mantener la temperatura ya se helada o caliente"
+    }
+]
