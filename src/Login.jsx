@@ -3,27 +3,23 @@ import { useNavigate } from "react-router-dom";
 import "./Login.scss"; // Import the CSS file
 import logo from './assets/logos/logoBlassAcademyLetra.png'
 
-
 function Login() {
     const usernames = [
-        'standard_user',
-        'locked_out_user',
-        'problem_user',
-        'performance_glitch_user',
-        'error_user',
-        'visual_user'
+        'standard',
+        'bloqueado',
+        'inexistente',
     ]    
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (email === "user@example.com" && password === "password") {
+        if (username === "username" && password === "password") {
             localStorage.setItem("auth", "true");
             navigate("/dashboard");
         } else {
-            alert("Invalid email or password");
+            alert("Invalid username or password");
         }
     };
 
@@ -33,32 +29,40 @@ function Login() {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    id="user-name"
+                    name="user-name"
+                    placeholder="Username"
+                    data-test="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     required
                 />
                 <input
                     type="password"
                     placeholder="Password"
+                    id="password"
+                    name="password"
+                    data-test="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type="submit">Login</button>
+                <button type="submit"
+                    id="login-button"
+                    name="login-button"
+                    value="Login"
+                >Login</button>
             </form>
             <div className="login-guide">
-                <div>
-                    Accepted usernames are:
+                <div id="login-credentials" className="login_credentials" data-test="login-credentials">
+                   <h4>Accepted usernames are: </h4> 
                     {usernames.map((username, index) => (
                         <p key={index}>{username}</p>
                     ))}
                 </div>
-                <div>
-                    <p>
-                        Password for all users:<br />
-                        secret_sauce<br />
-                    </p>
+                <div className="login-password" data-test="login-password">
+                    <h4> Password for all users:</h4> 
+                        secret_blass_academy
                 </div>
             </div>
         </div>
