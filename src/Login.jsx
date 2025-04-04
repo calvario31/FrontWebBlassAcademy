@@ -1,8 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"; // Import the CSS file
+import "./Login.scss"; // Import the CSS file
+import logo from './assets/logos/logoBlassAcademyLetra.png'
+
 
 function Login() {
+    const usernames = [
+        'standard_user',
+        'locked_out_user',
+        'problem_user',
+        'performance_glitch_user',
+        'error_user',
+        'visual_user'
+    ]    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -19,10 +29,10 @@ function Login() {
 
     return (
         <div className="login-container">
-            <h1> Blass Academy</h1>
+            <img src={logo}></img>
             <form onSubmit={handleSubmit}>
                 <input
-                    type="email"
+                    type="text"
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -37,17 +47,12 @@ function Login() {
                 />
                 <button type="submit">Login</button>
             </form>
-            <div class="login-guide">
+            <div className="login-guide">
                 <div>
-                    <p>
-                        Accepted usernames are:<br />
-                        standard_user<br />
-                        locked_out_user<br />
-                        problem_user<br />
-                        performance_glitch_user<br />
-                        error_user<br />
-                        visual_user
-                    </p>
+                    Accepted usernames are:
+                    {usernames.map((username, index) => (
+                        <p key={index}>{username}</p>
+                    ))}
                 </div>
                 <div>
                     <p>
