@@ -7,7 +7,6 @@ function Login() {
     const usernames = [
         'standard',
         'bloqueado',
-        'inexistente',
     ]
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -57,7 +56,7 @@ function Login() {
                 <div className="login-guide">
                     <div id="login-credentials" className="login-credentials" data-test="login-credentials">
                         <div className="inner-text">
-                            <h4>Accepted usernames are: </h4>
+                            <h4>Username existentes: </h4>
                             {usernames.map((username, index) => (
                                 <p key={index}>{username}</p>
                             ))}
@@ -65,7 +64,7 @@ function Login() {
                     </div>
                     <div className="login-password" data-test="login-password">
                         <div className="inner-text"> 
-                            <h4> Password for all users:</h4>
+                            <h4> Password para los usuarios:</h4>
                             secret_blass_academy
                         </div>
                     </div>
