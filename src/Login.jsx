@@ -8,7 +8,7 @@ function Login() {
         'standard',
         'bloqueado',
         'inexistente',
-    ]    
+    ]
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -25,44 +25,50 @@ function Login() {
 
     return (
         <div className="login-container">
-            <img src={logo}></img>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    id="user-name"
-                    name="user-name"
-                    placeholder="Username"
-                    data-test="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    id="password"
-                    name="password"
-                    data-test="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit"
-                    id="login-button"
-                    name="login-button"
-                    value="Login"
-                >Login</button>
-            </form>
-            <div className="login-guide">
-                <div id="login-credentials" className="login_credentials" data-test="login-credentials">
-                   <h4>Accepted usernames are: </h4> 
-                    {usernames.map((username, index) => (
-                        <p key={index}>{username}</p>
-                    ))}
-                </div>
-                <div className="login-password" data-test="login-password">
-                    <h4> Password for all users:</h4> 
-                        secret_blass_academy
+            <div className="login-info-container">
+                <img src={logo}></img>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        id="user-name"
+                        name="user-name"
+                        placeholder="Username"
+                        data-test="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        id="password"
+                        name="password"
+                        data-test="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <button type="submit"
+                        id="login-button"
+                        name="login-button"
+                        value="Login"
+                    >Login</button>
+                </form>
+                <div className="login-guide">
+                    <div id="login-credentials" className="login-credentials" data-test="login-credentials">
+                        <div className="inner-text">
+                            <h4>Accepted usernames are: </h4>
+                            {usernames.map((username, index) => (
+                                <p key={index}>{username}</p>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="login-password" data-test="login-password">
+                        <div className="inner-text"> 
+                            <h4> Password for all users:</h4>
+                            secret_blass_academy
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
