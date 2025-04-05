@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.scss"; // Import the CSS file
 import logo from './assets/logos/logoBlassAcademyLetra.png'
+import Cookies from 'js-cookie';
 
 function Login() {
     const usernames = [
@@ -10,15 +11,19 @@ function Login() {
     ]
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (username === "standard_user" && password === "secret_blass_academy") {
+        if (usernames.includes(username) && password === "secret_blass_academy") {
             localStorage.setItem("auth", "true");
+            Cookies.set('session-username', 'standard_user', { expires: 1 });
+            setError("");
             navigate("/dashboard");
         } else {
-            alert("Invalid username or password");
+            const message = usernames.includes(username) ? 'Usuario o contraseña inválidos' : 'Usuario inválido';
+            setError(message);
         }
     };
 
@@ -47,6 +52,15 @@ function Login() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    {error && (
+                        <div className="error-box">
+                            <span>{error}</span>
+                            <button className="close-btn" onClick={() => setError("")}>
+                                ×
+                            </button>
+                        </div>
+                    )}
+
                     <button type="submit"
                         id="login-button"
                         name="login-button"
@@ -63,7 +77,7 @@ function Login() {
                         </div>
                     </div>
                     <div className="login-password" data-test="login-password">
-                        <div className="inner-text"> 
+                        <div className="inner-text">
                             <h4> Password para los usuarios:</h4>
                             secret_blass_academy
                         </div>
