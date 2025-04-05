@@ -12,7 +12,7 @@ function Dashboard() {
 
   return (
     <div>
-      <h2>Welcome to the Dashboard!</h2>
+      <h2>Productos</h2>
       <button onClick={() => {
         localStorage.removeItem("auth");
         navigate("/login");

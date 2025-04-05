@@ -5,8 +5,8 @@ import logo from './assets/logos/logoBlassAcademyLetra.png'
 
 function Login() {
     const usernames = [
-        'standard',
-        'bloqueado',
+        'standard_user',
+        'blocked_user',
     ]
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -14,7 +14,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (username === "username" && password === "password") {
+        if (username === "standard_user" && password === "secret_blass_academy") {
             localStorage.setItem("auth", "true");
             navigate("/dashboard");
         } else {
