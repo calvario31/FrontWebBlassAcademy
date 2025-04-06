@@ -3,27 +3,27 @@ import { useNavigate } from "react-router-dom";
 import "./Login.scss"; // Import the CSS file
 import logo from './assets/logos/logoBlassAcademyLetra.png'
 import Cookies from 'js-cookie';
+import {usuario, claveSecreta, mensajeError} from "./constantes"
 
 function Login() {
-    const usernames = [
-        'standard_user',
-        'blocked_user',
-    ]
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    function handleSubmit(e) {
         e.preventDefault();
-        if (usernames.includes(username) && password === "secret_blass_academy") {
+        if(password !== claveSecreta) {
+            setError(mensajeError.credencialesIncorrectas)
+        } else if(username === usuario.valido) {
             localStorage.setItem("auth", "true");
-            Cookies.set('session-username', 'standard_user', { expires: 1 });
+            Cookies.set('session-username', usuario.valido, { expires: 1 });
             setError("");
             navigate("/dashboard");
+        } else if(username === usuario.bloqueado) {
+            setError(mensajeError.usuarioBloqueado);
         } else {
-            const message = usernames.includes(username) ? 'Usuario o contraseña inválidos' : 'Usuario inválido';
-            setError(message);
+            setError(mensajeError.usuario)
         }
     };
 
@@ -53,12 +53,12 @@ function Login() {
                         required
                     />
                     {error && (
-                        <div className="error-box">
+                        <h3 className="error-box" data-test="error">
                             <span>{error}</span>
                             <button className="close-btn" onClick={() => setError("")}>
                                 ×
                             </button>
-                        </div>
+                        </h3>
                     )}
 
                     <button type="submit"
@@ -71,15 +71,14 @@ function Login() {
                     <div id="login-credentials" className="login-credentials" data-test="login-credentials">
                         <div className="inner-text">
                             <h4>Username existentes: </h4>
-                            {usernames.map((username, index) => (
-                                <p key={index}>{username}</p>
-                            ))}
+                            <p key={0}> {usuario.valido}</p>
+                            <p key={1}> {usuario.bloqueado}</p>
                         </div>
                     </div>
                     <div className="login-password" data-test="login-password">
                         <div className="inner-text">
                             <h4> Password para los usuarios:</h4>
-                            secret_blass_academy
+                            {claveSecreta}
                         </div>
                     </div>
                 </div>
