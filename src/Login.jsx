@@ -40,7 +40,6 @@ function Login() {
                         data-test="username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        required
                     />
                     <input
                         type="password"
@@ -50,7 +49,6 @@ function Login() {
                         data-test="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        required
                     />
                     {error && (
                         <h3 className="error-box" data-test="error">
