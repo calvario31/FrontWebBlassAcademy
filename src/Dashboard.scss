@@ -144,20 +144,21 @@ body {
         display: block;
         margin-top: 10px;
         border: 1px solid #132322;
-        color: #132322;
-        background-color: #fff;
+        color: white;
+        background-color: #045892;
         width: 160px;
         cursor: pointer;
         padding: 6px 20px;
         font-weight: 500;
         font-family: "DM Sans", sans-serif;
         border-radius: 4px;
+        font-size: 14px;
     }
 }
 
 .price {
     font-weight: bold;
-    color: $color_3;
+    color: black;
     font-size: 1.1rem;
     margin-top: 0.5rem;
     display: inline-block;
@@ -167,6 +168,7 @@ body {
     background-color: #1a4789;
     color: white;
     padding: 1rem;
+    font-size: 20px;
     text-align: center;
     margin-top: auto;
 }
