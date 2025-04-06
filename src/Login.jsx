@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Login.scss"; // Import the CSS file
 import logo from "./assets/logos/logoBlassAcademyLetra.png";
 import Cookies from "js-cookie";
-import { users, masterPassword, loginErrors } from "./constantes";
+import { users, masterPassword, loginErrors } from "./constants";
 
 function Login() {
     const [username, setUsername] = useState("");
