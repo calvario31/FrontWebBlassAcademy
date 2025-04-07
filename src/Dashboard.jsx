@@ -3,11 +3,16 @@ import { items as initialItems } from "./constants";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.scss";
 import { FaShoppingCart } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaFilter } from "react-icons/fa";
 import Cookies from "js-cookie";
+import { IoIosClose } from "react-icons/io";
+
 
 function Dashboard() {
     const [sortOption, setSortOption] = useState("none");
     const [menuOpen, setMenuOpen] = useState(false);
+    const [cartItems, setCartItems] = useState([]);
     const navigate = useNavigate();
 
     const sortedItems = [...initialItems].sort((a, b) => {
@@ -30,17 +35,21 @@ function Dashboard() {
         navigate("/login");
     };
 
+    const addToCart = (product) => {
+        setCartItems([...cartItems, product]);
+    };
+
     return (
         <div className="dashboard">
             <header className="dashboard-header">
                 <div className="menu-container">
                     <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-                        ☰
+                        <GiHamburgerMenu />
                     </button>
                     {menuOpen && (
                         <div className="side-panel">
                             <button className="close-btn" onClick={() => setMenuOpen(false)}>
-                                ✖
+                                <IoIosClose />
                             </button>
                             <ul>
                                 <li>All Items</li>
@@ -51,21 +60,30 @@ function Dashboard() {
                     )}
                 </div>
 
-                <h1>Lista de Productos</h1>
+                <h1>Blass Academy</h1>
 
                 <button className="cart-btn" onClick={() => console.log("Cart clicked")}>
                     <FaShoppingCart size={20} />
+                    <a class="cart-count" data-test="cart-count">
+                        <span class="cart-count_badge" data-test="cart-count-badge">{cartItems.length}</span>
+                    </a>
                 </button>
             </header>
 
             <div className="header-controls">
-                <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
-                    <option value="none">Ordenar por...</option>
-                    <option value="name-asc">name (A-Z)</option>
-                    <option value="name-desc">name (Z-A)</option>
-                    <option value="price-asc">Precio: menor a mayor</option>
-                    <option value="price-desc">Precio: mayor a menor</option>
-                </select>
+                <h2>Products</h2>
+                <div className="filter-container">
+                    <button className="filter-button">
+                        <FaFilter />
+                    </button>
+                    <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
+                        <option value="none">Ordenar por...</option>
+                        <option value="name-asc">name (A-Z)</option>
+                        <option value="name-desc">name (Z-A)</option>
+                        <option value="price-asc">Precio: menor a mayor</option>
+                        <option value="price-desc">Precio: mayor a menor</option>
+                    </select>
+                </div>
             </div>
 
             <main className="product-grid">
@@ -75,7 +93,7 @@ function Dashboard() {
                         <h2>{item.name}</h2>
                         <p>{item.description}</p>
                         <span className="price">{item.price}</span>
-                        <button className="cart-button"> Agregar al carrito </button>
+                        <button className="cart-button" onClick={() => addToCart(item)}> Agregar al carrito </button>
                     </div>
                 ))}
             </main>
