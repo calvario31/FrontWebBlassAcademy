@@ -12,7 +12,13 @@ import { IoIosClose } from "react-icons/io";
 function Dashboard() {
     const [sortOption, setSortOption] = useState("none");
     const [menuOpen, setMenuOpen] = useState(false);
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('cart'))
+        } catch {
+            return []
+        }
+    });
     const navigate = useNavigate();
 
     const sortedItems = [...initialItems].sort((a, b) => {
@@ -36,7 +42,23 @@ function Dashboard() {
     };
 
     const addToCart = (product) => {
-        setCartItems([...cartItems, product]);
+        const newCartItems = [...cartItems, product]
+        setCartItems(newCartItems);
+        localStorage.setItem('cart', JSON.stringify(newCartItems));
+    };
+
+    const removeFromCart = (product) => {
+        const index = cartItems.findIndex(item => item.name === product.name);
+        if (index !== -1) {
+            const newCartItems = [...cartItems];
+            newCartItems.splice(index, 1);
+            setCartItems(newCartItems);
+            localStorage.setItem('cart', JSON.stringify(newCartItems));
+        }
+    };
+
+    const isInCart = (product) => {
+        return cartItems.some(item => item.name === product.name);
     };
 
     return (
@@ -64,8 +86,8 @@ function Dashboard() {
 
                 <button className="cart-btn" onClick={() => console.log("Cart clicked")}>
                     <FaShoppingCart size={20} />
-                    <a class="cart-count" data-test="cart-count">
-                        <span class="cart-count_badge" data-test="cart-count-badge">{cartItems.length}</span>
+                    <a className="cart-count" data-test="cart-count">
+                        <span className="cart-count_badge" data-test="cart-count-badge">{cartItems.length}</span>
                     </a>
                 </button>
             </header>
@@ -93,7 +115,11 @@ function Dashboard() {
                         <h2>{item.name}</h2>
                         <p>{item.description}</p>
                         <span className="price">{item.price}</span>
-                        <button className="cart-button" onClick={() => addToCart(item)}> Agregar al carrito </button>
+                        {isInCart(item) ?
+                            (<button className="cart-button remove" onClick={() => removeFromCart(item)}> Quitar del carrito </button>)
+                            :
+                            (<button className="cart-button add" onClick={() => addToCart(item)}> Agregar al carrito </button>)
+                        }
                     </div>
                 ))}
             </main>
