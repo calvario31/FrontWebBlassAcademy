@@ -216,8 +216,44 @@ body {
     color: white;
     padding: 1rem;
     font-size: 20px;
-    text-align: center;
     margin-top: auto;
+
+    p {
+        margin-top: 10px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1.5rem;
+
+        a {
+            color: white;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #1a4789;
+            }
+        }
+    }
+
+
+    .social-icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+    }
 }
 
 .hamburger {
