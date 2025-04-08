@@ -14,9 +14,9 @@ function Dashboard() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [cartItems, setCartItems] = useState(() => {
         try {
-            return JSON.parse(localStorage.getItem('cart'))
+            return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
         } catch {
-            return []
+            return [];
         }
     });
     const navigate = useNavigate();
