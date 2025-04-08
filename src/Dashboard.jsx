@@ -87,7 +87,7 @@ function Dashboard() {
                 <button className="cart-btn" onClick={() => console.log("Cart clicked")}>
                     <FaShoppingCart size={20} />
                     <a className="cart-count" data-test="cart-count">
-                        <span className="cart-count_badge" data-test="cart-count-badge">{cartItems.length}</span>
+                        <span className="cart-count_badge" data-test="cart-count-badge">{cartItems?.length}</span>
                     </a>
                 </button>
             </header>
