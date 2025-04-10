@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaFilter } from "react-icons/fa";
 import Cookies from "js-cookie";
 import { IoIosClose } from "react-icons/io";
-import logo from "./assets/logos/logoBlassAcademyLetra.png";
+import logo from "./assets/logos/logoRectangular.png";
 
 function Dashboard() {
     const [sortOption, setSortOption] = useState("name-asc");
