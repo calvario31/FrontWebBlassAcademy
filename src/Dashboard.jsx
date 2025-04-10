@@ -7,10 +7,11 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaFilter } from "react-icons/fa";
 import Cookies from "js-cookie";
 import { IoIosClose } from "react-icons/io";
+import logo from "./assets/logos/logoBlassAcademyLetra.png";
 
 
 function Dashboard() {
-    const [sortOption, setSortOption] = useState("none");
+    const [sortOption, setSortOption] = useState("name-asc");
     const [menuOpen, setMenuOpen] = useState(false);
     const [cartItems, setCartItems] = useState(() => {
         try {
@@ -37,6 +38,7 @@ function Dashboard() {
 
     const handleLogout = () => {
         localStorage.removeItem("auth");
+        localStorage.removeItem("cart");
         Cookies.remove("session-username");
         navigate("/login");
     };
@@ -82,13 +84,17 @@ function Dashboard() {
                     )}
                 </div>
 
-                <h1>Blass Academy</h1>
+                <div className="title">
+                    <img src={logo}  width={150} ></img>
+                    {/* <h1>Blass Academy</h1> */}
+                </div>
 
                 <button className="cart-btn" onClick={() => console.log("Cart clicked")}>
-                    <FaShoppingCart size={20} />
-                    <a className="cart-count" data-test="cart-count">
-                        <span className="cart-count_badge" data-test="cart-count-badge">{cartItems?.length}</span>
-                    </a>
+                    <FaShoppingCart size={30} />
+                    {cartItems?.length > 0 &&
+                        <a className="cart-count" data-test="cart-count">
+                            <span className="cart-count_badge" data-test="cart-count-badge">{cartItems?.length}</span>
+                        </a>}
                 </button>
             </header>
 
@@ -99,7 +105,6 @@ function Dashboard() {
                         <FaFilter />
                     </button>
                     <select value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
-                        <option value="none">Ordenar por...</option>
                         <option value="name-asc">name (A-Z)</option>
                         <option value="name-desc">name (Z-A)</option>
                         <option value="price-asc">Precio: menor a mayor</option>
