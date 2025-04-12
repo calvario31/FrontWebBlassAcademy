@@ -49,6 +49,18 @@ body {
     gap: 1rem;
     padding: 2rem;
     justify-content: center;
+
+    .product-card-link {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            .product-card {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
 }
 
 .product-card {

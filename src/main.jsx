@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartProvider } from "./context/CartContex";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import ProductDetails from "./pages/ProductDetails";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -12,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/product/:productId" element={<ProductDetails />} /> */}
+        <Route path="/product/:productId" element={<ProductDetails />} />
       </Routes>
     </BrowserRouter>
   </CartProvider>

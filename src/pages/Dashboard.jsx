@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { items as initialItems } from "../constants/constants";
 import "./Dashboard.scss";
 import { useCart } from '../context/CartContex';
+import { Link } from "react-router-dom";
 
 function Dashboard() {
     const { addToCart, isInCart, removeFromCart } = useCart();
@@ -46,10 +47,15 @@ function Dashboard() {
             <main className="product-grid">
                 {sortedItems.map((item, index) => (
                     <div key={index} className="product-card">
-                        <img src={item.image} alt={item.name} />
-                        <h2>{item.name}</h2>
-                        <p>{item.description}</p>
-                        <span className="price">{item.price}</span>
+                        <Link
+                            to={`/product/${encodeURIComponent(item.id)}`}
+                            className="product-card-link"
+                        >
+                            <img src={item.image} alt={item.name} />
+                            <h2>{item.name}</h2>
+                            <p>{item.description}</p>
+                            <span className="price">{item.price}</span>
+                        </Link>
                         {isInCart(item) ? (
                             <button className="cart-button remove" onClick={() => removeFromCart(item)}>
                                 {" "}
