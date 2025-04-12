@@ -1,25 +1,13 @@
 import { useState } from "react";
-import { items as initialItems } from "./constants";
-import { useNavigate } from "react-router-dom";
-import "./Dashboard.scss";
-import { FaShoppingCart } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { FaFilter } from "react-icons/fa";
-import Cookies from "js-cookie";
-import { IoIosClose } from "react-icons/io";
-import logo from "./assets/logos/logoRectangular.png";
+import Header from "../components/Header";
+import { items as initialItems } from "../constants/constants";
+import "./Dashboard.scss";
+import { useCart } from '../context/CartContex';
 
 function Dashboard() {
+    const { addToCart, isInCart, removeFromCart } = useCart();
     const [sortOption, setSortOption] = useState("name-asc");
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [cartItems, setCartItems] = useState(() => {
-        try {
-            return localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
-        } catch {
-            return [];
-        }
-    });
-    const navigate = useNavigate();
 
     const sortedItems = [...initialItems].sort((a, b) => {
         switch (sortOption) {
@@ -35,70 +23,10 @@ function Dashboard() {
         return 0;
     });
 
-    const handleLogout = () => {
-        localStorage.removeItem("auth");
-        localStorage.removeItem("cart");
-        Cookies.remove("session-username");
-        navigate("/login");
-    };
-
-    const addToCart = (product) => {
-        const newCartItems = [...cartItems, product];
-        setCartItems(newCartItems);
-        localStorage.setItem("cart", JSON.stringify(newCartItems));
-    };
-
-    const removeFromCart = (product) => {
-        const index = cartItems.findIndex((item) => item.name === product.name);
-        if (index !== -1) {
-            const newCartItems = [...cartItems];
-            newCartItems.splice(index, 1);
-            setCartItems(newCartItems);
-            localStorage.setItem("cart", JSON.stringify(newCartItems));
-        }
-    };
-
-    const isInCart = (product) => {
-        return cartItems.some((item) => item.name === product.name);
-    };
-
     return (
         <div className="dashboard">
-            <header className="dashboard-header">
-                <div className="menu-container">
-                    <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-                        <GiHamburgerMenu />
-                    </button>
-                    {menuOpen && (
-                        <div className="side-panel">
-                            <button className="close-btn" onClick={() => setMenuOpen(false)}>
-                                <IoIosClose />
-                            </button>
-                            <ul>
-                                <li>All Items</li>
-                                <li>About</li>
-                                <li onClick={handleLogout}>Logout</li>
-                            </ul>
-                        </div>
-                    )}
-                </div>
 
-                <div className="title">
-                    <img src={logo} width={150}></img>
-                    {/* <h1>Blass Academy</h1> */}
-                </div>
-
-                <button className="cart-btn" onClick={() => console.log("Cart clicked")}>
-                    <FaShoppingCart size={30} />
-                    {cartItems?.length > 0 && (
-                        <a className="cart-count" data-test="cart-count">
-                            <span className="cart-count_badge" data-test="cart-count-badge">
-                                {cartItems?.length}
-                            </span>
-                        </a>
-                    )}
-                </button>
-            </header>
+            <Header />
 
             <div className="header-controls">
                 <h2>Productos</h2>
