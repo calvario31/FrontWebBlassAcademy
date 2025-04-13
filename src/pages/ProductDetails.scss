@@ -14,7 +14,8 @@
       background: none;
       border: none;
       color: #2c3e50;
-      font-size: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
       cursor: pointer;
       margin-bottom: 2rem;
       padding: 0.5rem 1rem;
@@ -22,7 +23,7 @@
       transition: all 0.3s ease;
   
       &:hover {
-        background-color: #f5f5f5;
+        color: #045892;
       }
     }
   
@@ -67,7 +68,7 @@
       .product-price {
         font-size: 1.8rem;
         font-weight: bold;
-        color: #e74c3c;
+        color: #2c3e50;
         margin-bottom: 1.5rem;
       }
   
