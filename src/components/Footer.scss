@@ -1,0 +1,47 @@
+.dashboard-footer {
+    background-color: #1a4789;
+    color: white;
+    padding: 1rem;
+    font-size: 20px;
+    margin-top: auto;
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+        display: flex;
+        gap: 1.5rem;
+
+        a {
+            color: white;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: white;
+                filter: invert(0);
+                size: 5;
+            }
+        }
+    }
+
+
+    .social-icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+        }
+    }
+}

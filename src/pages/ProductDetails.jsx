@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContex';
 import './ProductDetails.scss';
 import { items as initialItems } from "../constants/constants";
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const ProductDetails = () => {
     const { addToCart, isInCart, removeFromCart } = useCart();
@@ -37,6 +38,7 @@ const ProductDetails = () => {
                         <img
                             src={product.image}
                             alt={product.name}
+                            height={450}
                             className="product-main-image"
                         />
                     </div>
@@ -63,6 +65,7 @@ const ProductDetails = () => {
                 </div>
 
             </div>
+            <Footer/>
         </div>
     );
 };
