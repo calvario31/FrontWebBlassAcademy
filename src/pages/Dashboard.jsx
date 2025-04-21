@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import { items as initialItems } from "../constants/constants";
 import { useCart } from '../context/CartContex';
 import "./Dashboard.scss";
+import TitleBar from "../components/TitleBar";
 
 function Dashboard() {
     const { addToCart, isInCart, removeFromCart } = useCart();
@@ -30,7 +31,7 @@ function Dashboard() {
 
             <Header />
 
-            <div className="header-controls">
+            <TitleBar>
                 <h2>Productos</h2>
                 <div className="custom-select-container">
                     <FaFilter className="select-icon filter-icon" />
@@ -42,7 +43,7 @@ function Dashboard() {
                     </select>
                     <FaChevronDown className="select-icon arrow-icon" />
                 </div>
-            </div>
+            </TitleBar>
 
             <main className="product-grid">
                 {sortedItems.map((item, index) => (

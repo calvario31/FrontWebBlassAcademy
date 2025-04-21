@@ -5,6 +5,7 @@ import './ProductDetails.scss';
 import { items as initialItems } from "../constants/constants";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import TitleBar from '../components/TitleBar';
 
 const ProductDetails = () => {
     const { addToCart, isInCart, removeFromCart } = useCart();
@@ -28,11 +29,14 @@ const ProductDetails = () => {
     return (
         <div className="page-container">
             <Header />
-            <div className="product-details-container">
+            
+            <TitleBar>
                 <button className="back-button" onClick={() => navigate("/dashboard")}>
                     &larr; Back to Products
                 </button>
+            </TitleBar>
 
+            <div className="product-details-container">
                 <div className="product-details">
                     <div className="product-image-container">
                         <img
@@ -65,7 +69,7 @@ const ProductDetails = () => {
                 </div>
 
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };
