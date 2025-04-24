@@ -26,18 +26,20 @@ const Header = () => {
                 <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
                     <GiHamburgerMenu />
                 </button>
-                {menuOpen && (
-                    <div className="side-panel">
-                        <button className="close-btn" onClick={() => setMenuOpen(false)}>
-                            <IoIosClose />
-                        </button>
-                        <ul>
-                            <li>All Items</li>
-                            <li>About</li>
-                            <li onClick={handleLogout}>Logout</li>
-                        </ul>
-                    </div>
-                )}
+                <div className={`side-panel ${menuOpen ? 'open' : ''}`}>
+                    {menuOpen && (
+                        <>
+                            <button className="close-btn" onClick={() => setMenuOpen(false)}>
+                                <IoIosClose />
+                            </button>
+                            <ul>
+                                <li>All Items</li>
+                                <li>About</li>
+                                <li onClick={handleLogout}>Logout</li>
+                            </ul>
+                        </>
+                    )}
+                </div>
             </div>
 
             <div className="title">

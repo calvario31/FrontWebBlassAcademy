@@ -32,7 +32,7 @@ const ProductDetails = () => {
             
             <TitleBar>
                 <button className="back-button" onClick={() => navigate("/dashboard")}>
-                    &larr; Back to Products
+                    &larr; Regresar a Productos
                 </button>
             </TitleBar>
 

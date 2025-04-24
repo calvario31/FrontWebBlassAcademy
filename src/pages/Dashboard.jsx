@@ -32,7 +32,7 @@ function Dashboard() {
             <Header />
 
             <TitleBar>
-                <h2>Productos</h2>
+                <h2 className="dashboard-title">Productos</h2>
                 <div className="custom-select-container">
                     <FaFilter className="select-icon filter-icon" />
                     <select className="custom-select" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
