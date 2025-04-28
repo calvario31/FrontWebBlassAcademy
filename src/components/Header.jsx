@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosClose } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logos/logoRectangular.png";
 import { useCart } from "../context/CartContex";
 import "./Header.scss";
@@ -46,8 +46,11 @@ const Header = () => {
                 <img src={logo} width={150}></img>
             </div>
 
-            <button className="cart-btn" onClick={() => console.log("Cart clicked")}>
-                <FaShoppingCart size={30} />
+            <button className="cart-btn">
+                <Link to="/checkout">
+                    <FaShoppingCart size={30} />
+                </Link>
+
                 {cartItems?.length > 0 && (
                     <a className="cart-count" data-test="cart-count">
                         <span className="cart-count_badge" data-test="cart-count-badge">

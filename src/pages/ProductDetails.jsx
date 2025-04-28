@@ -28,8 +28,6 @@ const ProductDetails = () => {
 
     return (
         <div className="page-container">
-            <Header />
-            
             <TitleBar>
                 <button className="back-button" onClick={() => navigate("/dashboard")}>
                     &larr; Regresar a Productos
@@ -69,7 +67,6 @@ const ProductDetails = () => {
                 </div>
 
             </div>
-            <Footer />
         </div>
     );
 };

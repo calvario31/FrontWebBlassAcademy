@@ -1,9 +1,12 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LayoutRoute from "./components/Layout";
 import { CartProvider } from "./context/CartContex";
+import Checkout from "./pages/Checkout";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import ProductDetails from "./pages/ProductDetails";
+import CheckoutComplete from "./pages/CheckoutComplete";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -12,8 +15,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/product/:productId" element={<ProductDetails />} />
+
+        <Route element={<LayoutRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/product/:productId" element={<ProductDetails />} />
+          <Route path="/checkout" element={<Checkout />} /> 
+          <Route path="/checkout-complete" element={<CheckoutComplete />} /> 
+        </Route>
+
       </Routes>
     </BrowserRouter>
   </CartProvider>

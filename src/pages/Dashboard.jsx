@@ -28,7 +28,6 @@ function Dashboard() {
 
     return (
         <div className="dashboard">
-            <Header />
 
             <TitleBar>
                 <h2 className="dashboard-title">Productos</h2>
@@ -74,8 +73,6 @@ function Dashboard() {
                     </div>
                 ))}
             </main>
-
-            <Footer />
         </div>
     );
 }
