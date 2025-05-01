@@ -1,8 +1,8 @@
 // pages/Checkout.jsx
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./Checkout.module.css"; // Opcional: CSS Modules
 import TitleBar from "../components/TitleBar";
 import { useCart } from "../context/CartContex";
+import "./Checkout.scss";
 
 export default function Checkout() {
   const { clearCart } = useCart();
@@ -21,19 +21,19 @@ export default function Checkout() {
       <TitleBar>
         <h2 className="title">Checkout</h2>
       </TitleBar>
-      <div className={styles.checkoutContainer}>
-        <form className={styles.checkoutForm}>
+      <div className="checkout-container">
+        <form className="checkout-form">
           <input type="text" placeholder="Nombre" required />
           <input type="text" placeholder="Apellido" required />
           <input type="email" placeholder="Correo electrónico" required />
 
-          <div className={styles.buttonsContainer}>
-            <Link to="/dashboard" className={styles.cancelButton}>
+          <div className="buttons-container">
+            <Link to="/dashboard" className="cancel-button">
               Cancelar
             </Link>
             <button type="button" // Evita el envío del formulario
               onClick={handleContinue}
-              className={styles.continueButton}>
+              className="continue-button">
               Continuar
             </button>
           </div>

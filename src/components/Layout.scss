@@ -1,0 +1,25 @@
+/* Layout.module.css o tu archivo global CSS */
+
+/* Contenedor principal: altura mínima = 100vh y flexbox en columna */
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ocupa toda la altura de la pantalla */
+}
+
+/* Contenido principal: crece para ocupar el espacio restante */
+.layout-main {
+    flex: 1;
+    /* Equivalente a flex-grow: 1 */
+    &>div {
+        flex-grow: 1;
+        min-height: calc(100vh - 185.5px)
+    }
+}
+
+/* Reset básico para body (opcional pero recomendado) */
+body {
+    margin: 0;
+    padding: 0;
+}
