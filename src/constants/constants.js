@@ -8,9 +8,15 @@ export const masterPassword = "secret_blass_academy";
 export const loginErrors = {
     wrong: "Usuario y/o clave incorrectas",
     blocked: "Este usuario ha sido bloqueado",
-    missingUsername: "Favor escribir un username",
-    missingPassword: "Favor escribir un password",
-    missingBoth: "Favor escribir sus credenciales",
+    missingUsername: "Favor ingrese su usuario",
+    missingPassword: "Favor ingrese su clave",
+    missingBoth: "Favor ingrese sus credenciales",
+};
+
+export const dataErrors = {
+    missingFirstname: "Favor ingrese su nombre",
+    missingPassword: "Favor ingrese su apellido",
+    missingEmail: "Favor ingrese su correo",
 };
 
 export const items = [
