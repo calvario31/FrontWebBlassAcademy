@@ -3,11 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LayoutRoute from "./components/Layout";
 import { CartProvider } from "./context/CartContex";
 import Checkout from "./pages/Checkout";
+import CheckoutComplete from "./pages/CheckoutComplete";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import ProductDetails from "./pages/ProductDetails";
-import CheckoutComplete from "./pages/CheckoutComplete";
-
+import "./styles/global.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CartProvider>

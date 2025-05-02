@@ -7,7 +7,7 @@ export default function CheckoutComplete() {
     return (
         <div>
             <TitleBar>
-                <h2 className="title">Checkout: Completo!</h2>
+                <h2 className="title">Compra Completada</h2>
             </TitleBar>
             <div className="container">
                 <FiCheckCircle className="checkIcon" size={80} color="#1a4789" />

@@ -14,9 +14,9 @@ export const loginErrors = {
 };
 
 export const dataErrors = {
-    missingFirstname: "Favor ingrese su nombre",
-    missingPassword: "Favor ingrese su apellido",
-    missingEmail: "Favor ingrese su correo",
+    nombre: "Favor ingrese su nombre",
+    apellido: "Favor ingrese su apellido",
+    email: "Favor ingrese su correo",
 };
 
 export const items = [
