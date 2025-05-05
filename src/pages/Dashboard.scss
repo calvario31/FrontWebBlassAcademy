@@ -16,17 +16,17 @@ body {
 .custom-select-container {
     position: relative;
     display: inline-block;
-    width: 200px;
+    width: 220px;
 
     .select-icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         pointer-events: none;
-        /* Allows clicks to pass through to the select */
         color: #666;
 
         &.arrow-icon {
+            font-size: 25px;
             right: 10px;
         }
 

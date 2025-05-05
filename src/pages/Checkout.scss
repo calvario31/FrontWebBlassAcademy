@@ -32,14 +32,23 @@
         margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
+
+        &.error {
+          margin-bottom: 0;
+          border-color: #dc3545;
+        }
+
+        &.valid {
+          border-color: #28a745;
+        }
       }
 
-      .error {
-        color: #f44336;
-        font-size: 0.8rem;
-        margin-top: -8px;
+      .error-message {
+        color: #dc3545;
+        font-size: 0.875rem;
         margin-bottom: 10px;
       }
+
     }
   }
 }
@@ -72,4 +81,10 @@
       cursor: not-allowed;
     }
   }
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }

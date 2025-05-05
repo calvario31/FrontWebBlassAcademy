@@ -7,6 +7,10 @@ import { items as initialItems } from "../constants/constants";
 import { useCart } from "../context/CartContex";
 import "./Dashboard.scss";
 import TitleBar from "../components/TitleBar";
+import { TbTriangleInvertedFilled } from "react-icons/tb";
+import { RxTriangleDown } from "react-icons/rx";
+
+
 
 function Dashboard() {
     const { addToCart, isInCart, removeFromCart } = useCart();
@@ -38,12 +42,12 @@ function Dashboard() {
                         value={sortOption}
                         onChange={(e) => setSortOption(e.target.value)}
                     >
-                        <option value="name-asc">name (A-Z)</option>
-                        <option value="name-desc">name (Z-A)</option>
+                        <option value="name-asc">Name (A to Z)</option>
+                        <option value="name-desc">Name (Z to A)</option>
                         <option value="price-asc">Precio: menor a mayor</option>
                         <option value="price-desc">Precio: mayor a menor</option>
                     </select>
-                    <FaChevronDown className="select-icon arrow-icon" />
+                    <RxTriangleDown className="select-icon arrow-icon" />
                 </div>
             </TitleBar>
 
