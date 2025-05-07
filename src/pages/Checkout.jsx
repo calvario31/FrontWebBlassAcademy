@@ -14,14 +14,14 @@ export default function Checkout() {
     register,
     handleSubmit,
     formState: { errors },
-    trigger
+    trigger,
+    clearErrors
   } = useForm({
     mode: 'onBlur'
   });
 
 
   const onSubmit = (data) => {
-    console.log(data);
     clearCart();
     navigate('/checkout-complete');
   };
@@ -49,9 +49,6 @@ export default function Checkout() {
               })}
               className={errors.nombre ? 'error' : ''}
             />
-            {errors.nombre && (
-              <div className="error-message">{errors.nombre.message.toString()}</div>
-            )}
 
             <input type="text" name="apellido" placeholder="Apellido"
               {...register('apellido', {
@@ -59,9 +56,6 @@ export default function Checkout() {
               })}
               className={errors.apellido ? 'error' : ''}
             />
-            {errors.apellido && (
-              <div className="error-message">{errors.apellido.message.toString()}</div>
-            )}
 
             <input type="email" name="email" placeholder="Correo electrónico"
               {...register('email', {
@@ -73,10 +67,16 @@ export default function Checkout() {
               })}
               className={errors.email ? 'error' : ''}
             />
-            {errors.email && (
-              <div className="error-message">{errors.email.message.toString()}</div>
-            )}
           </div>
+
+          {Object.keys(errors).length > 0 && (
+            <h3 className="error-box" data-test="error">
+              <span>{errors.nombre?.message.toString() || errors.apellido?.message.toString() || errors.email?.message.toString()}</span>
+              <button className="close-btn" onClick={() => clearErrors()}>
+                ×
+              </button>
+            </h3>
+          )}
 
           <div className="buttons-container">
             <Link to="/dashboard" className="cancel-button">
