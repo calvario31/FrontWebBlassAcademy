@@ -17,7 +17,7 @@ export default function Checkout() {
     trigger,
     clearErrors
   } = useForm({
-    mode: 'onBlur'
+    mode: 'onSubmit'
   });
 
 
