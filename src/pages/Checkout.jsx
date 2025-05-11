@@ -38,7 +38,7 @@ export default function Checkout() {
   return (
     <div>
       <TitleBar>
-        <h2 className="title">Sus Datos</h2>
+        <h2 className="blass-title">Sus Datos</h2>
       </TitleBar>
       <div className="checkout-container">
         <form className="checkout-form" onSubmit={handleSubmit(onSubmit)}>
@@ -79,11 +79,11 @@ export default function Checkout() {
           )}
 
           <div className="buttons-container">
-            <Link to="/dashboard" className="cancel-button">
+            <Link to="/dashboard" className="blass-button danger">
               Cancelar
             </Link>
             <button type="submit" onClick={handleContinueClick}
-              className="continue-button">
+              className="blass-button success">
               Continuar
             </button>
           </div>

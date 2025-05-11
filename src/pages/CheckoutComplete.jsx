@@ -7,7 +7,7 @@ export default function CheckoutComplete() {
     return (
         <div>
             <TitleBar>
-                <h2 className="title">Compra Completada</h2>
+                <h2 className="blass-title">Compra Completada</h2>
             </TitleBar>
             <div className="container">
                 <FiCheckCircle className="checkIcon" size={80} color="#1a4789" />
@@ -15,7 +15,7 @@ export default function CheckoutComplete() {
                 <p className="subtitle">
                     Su pedido ha sido enviado y llegará tan rápido como pueda llegar el poni.
                 </p>
-                <Link to="/dashboard" className="homeButton">
+                <Link to="/dashboard" className="blass-button success">
                     Volver a Inicio
                 </Link>
             </div>

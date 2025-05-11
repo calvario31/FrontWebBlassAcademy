@@ -69,7 +69,7 @@ function Login() {
                         </h3>
                     )}
 
-                    <button type="submit" id="login-button" name="login-button" value="Login">
+                    <button className="blass-button success" type="submit" id="login-button" name="login-button" value="Login">
                         Login
                     </button>
                 </form>

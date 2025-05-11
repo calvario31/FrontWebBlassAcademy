@@ -20,6 +20,10 @@ const Header = () => {
         navigate("/login");
     };
 
+    const about = () => {
+        window.open('https://linktr.ee/blassacademy', "_blank", "noopener,noreferrer");
+    }
+
     return (
         <header className="dashboard-header">
             <div className="menu-container">
@@ -34,7 +38,7 @@ const Header = () => {
                             </button>
                             <ul>
                                 <li>All Items</li>
-                                <li>About</li>
+                                <li onClick={about}>About</li>
                                 <li onClick={handleLogout}>Logout</li>
                             </ul>
                         </>

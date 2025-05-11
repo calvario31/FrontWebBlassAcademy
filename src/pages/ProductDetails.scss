@@ -8,11 +8,9 @@
 .back-button {
   background: none;
   border: none;
-  color: black;
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 4px;
   transition: all 0.3s ease;
 
   &:hover {
@@ -98,30 +96,6 @@
           border-radius: 4px;
           font-size: 1rem;
           text-align: center;
-        }
-      }
-
-      .cart-button {
-        display: block;
-        margin-top: 10px;
-        width: 160px;
-        cursor: pointer;
-        padding: 6px 20px;
-        font-weight: 500;
-        font-family: "DM Sans", sans-serif;
-        border-radius: 4px;
-        font-size: 14px;
-
-        &.add {
-          background-color: #045892;
-          color: white;
-          border: 1px solid #132322;
-        }
-
-        &.remove {
-          color: #e2231a;
-          background-color: white;
-          border: 1px solid #e2231a;
         }
       }
     }

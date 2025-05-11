@@ -17,6 +17,7 @@ body {
     position: relative;
     display: inline-block;
     width: 220px;
+    margin-left: auto;
 
     .select-icon {
         position: absolute;
@@ -95,30 +96,6 @@ body {
         font-size: 0.95rem;
         color: $color_2;
     }
-
-    .cart-button {
-        display: block;
-        margin-top: 10px;
-        width: 160px;
-        cursor: pointer;
-        padding: 6px 20px;
-        font-weight: 500;
-        font-family: "DM Sans", sans-serif;
-        border-radius: 4px;
-        font-size: 14px;
-
-        &.add {
-            background-color: #045892;
-            color: white;
-            border: 1px solid #132322;
-        }
-
-        &.remove {
-            color: #e2231a;
-            background-color: white;
-            border: 1px solid #e2231a;
-        }
-    }
 }
 
 .price {
@@ -126,6 +103,7 @@ body {
     color: black;
     font-size: 1.1rem;
     margin-top: 0.5rem;
+    margin-bottom: 10px;
     display: inline-block;
 }
 

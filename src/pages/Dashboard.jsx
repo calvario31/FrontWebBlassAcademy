@@ -34,7 +34,7 @@ function Dashboard() {
         <div className="dashboard">
 
             <TitleBar>
-                <h2 className="dashboard-title">Productos</h2>
+                <h2 className="blass-title">Productos</h2>
                 <div className="custom-select-container">
                     <FaFilter className="select-icon filter-icon" />
                     <select
@@ -64,12 +64,12 @@ function Dashboard() {
                             <span className="price">{item.price}</span>
                         </Link>
                         {isInCart(item) ? (
-                            <button className="cart-button remove" onClick={() => removeFromCart(item)}>
+                            <button className="blass-button small danger" onClick={() => removeFromCart(item)}>
                                 {" "}
                                 Quitar del carrito{" "}
                             </button>
                         ) : (
-                            <button className="cart-button add" onClick={() => addToCart(item)}>
+                            <button className="blass-button small success" onClick={() => addToCart(item)}>
                                 {" "}
                                 Agregar al carrito{" "}
                             </button>

@@ -30,8 +30,9 @@ const ProductDetails = () => {
         <div className="page-container">
             <TitleBar>
                 <button className="back-button" onClick={() => navigate("/dashboard")}>
-                    &larr; Regresar a Productos
+                    &larr;
                 </button>
+                <h2 className="blass-title">Detalles del producto</h2>
             </TitleBar>
 
             <div className="product-details-container">
@@ -52,12 +53,12 @@ const ProductDetails = () => {
 
                         <div className="product-actions">
                             {isInCart(product) ? (
-                                <button className="cart-button remove" onClick={() => removeFromCart(product)}>
+                                <button className="blass-button small danger" onClick={() => removeFromCart(product)}>
                                     {" "}
                                     Quitar del carrito{" "}
                                 </button>
                             ) : (
-                                <button className="cart-button add" onClick={() => addToCart(product)}>
+                                <button className="blass-button small success" onClick={() => addToCart(product)}>
                                     {" "}
                                     Agregar al carrito{" "}
                                 </button>
