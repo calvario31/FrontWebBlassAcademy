@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import { useState } from 'react';
+import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosClose } from "react-icons/io";
@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logos/logoRectangular.png";
 import { useCart } from "../context/CartContex";
 import "./Header.scss";
-
 
 const Header = () => {
     const { cartItems, clearCart } = useCart();
@@ -21,8 +20,8 @@ const Header = () => {
     };
 
     const about = () => {
-        window.open('https://linktr.ee/blassacademy', "_blank", "noopener,noreferrer");
-    }
+        window.open("https://linktr.ee/blassacademy", "_blank", "noopener,noreferrer");
+    };
 
     return (
         <header className="dashboard-header">
@@ -30,7 +29,7 @@ const Header = () => {
                 <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
                     <GiHamburgerMenu />
                 </button>
-                <div className={`side-panel ${menuOpen ? 'open' : ''}`}>
+                <div className={`side-panel ${menuOpen ? "open" : ""}`}>
                     {menuOpen && (
                         <>
                             <button className="close-btn" onClick={() => setMenuOpen(false)}>
