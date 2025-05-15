@@ -29,12 +29,11 @@ const ProductDetails = () => {
     return (
         <div className="page-container">
             <TitleBar>
-                <button className="back-button" onClick={() => navigate("/dashboard")}>
-                    &larr;
-                </button>
                 <h2 className="blass-title">Detalles del producto</h2>
             </TitleBar>
-
+            <button className="back-button" onClick={() => navigate("/dashboard")}>
+                &larr;
+            </button>
             <div className="product-details-container">
                 <div className="product-details">
                     <div className="product-image-container">
