@@ -10,8 +10,6 @@ import TitleBar from "../components/TitleBar";
 import { TbTriangleInvertedFilled } from "react-icons/tb";
 import { RxTriangleDown } from "react-icons/rx";
 
-
-
 function Dashboard() {
     const { addToCart, isInCart, removeFromCart } = useCart();
     const [sortOption, setSortOption] = useState("name-asc");
@@ -32,13 +30,13 @@ function Dashboard() {
 
     return (
         <div className="dashboard">
-
             <TitleBar>
                 <h2 className="blass-title">Productos</h2>
-                <div className="custom-select-container">
+                <div className="select-container">
                     <FaFilter className="select-icon filter-icon" />
                     <select
-                        className="custom-select"
+                        className="product_sort_container"
+                        data-test="product_sort_container"
                         value={sortOption}
                         onChange={(e) => setSortOption(e.target.value)}
                     >
@@ -51,25 +49,51 @@ function Dashboard() {
                 </div>
             </TitleBar>
 
-            <main className="product-grid">
+            <main
+                className="inventory_container"
+                id="inventory_container"
+                data-test="inventory_container"
+            >
                 {sortedItems.map((item, index) => (
-                    <div key={index} className="product-card">
+                    <div key={index} className="inventory_item">
                         <Link
                             to={`/product/${encodeURIComponent(item.id)}`}
-                            className="product-card-link"
+                            className="inventory_item_link"
                         >
-                            <img src={item.image} alt={item.name} />
-                            <h2>{item.name}</h2>
-                            <p>{item.description}</p>
-                            <span className="price">{item.price}</span>
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                                className="inventory_item_img"
+                                data-test="inventory_item_img"
+                            />
+                            <h2 className="inventory_item_name" data-test="inventory-item-name">
+                                {item.name}
+                            </h2>
+                            <p className="inventory_item_desc" data-test="inventory_item_desc">
+                                {item.description}
+                            </p>
+                            <span
+                                className="price inventory_item_price"
+                                data-test="inventory_item_price"
+                            >
+                                {item.price}
+                            </span>
                         </Link>
                         {isInCart(item) ? (
-                            <button className="blass-button small danger" onClick={() => removeFromCart(item)}>
+                            <button
+                                className="blass-button small danger btn_inventory"
+                                data-test="btn_inventory"
+                                onClick={() => removeFromCart(item)}
+                            >
                                 {" "}
                                 Quitar del carrito{" "}
                             </button>
                         ) : (
-                            <button className="blass-button small success" onClick={() => addToCart(item)}>
+                            <button
+                                className="blass-button small success btn_inventory"
+                                data-test="btn_inventory"
+                                onClick={() => addToCart(item)}
+                            >
                                 {" "}
                                 Agregar al carrito{" "}
                             </button>

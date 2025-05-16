@@ -26,7 +26,12 @@ const Header = () => {
     return (
         <header className="dashboard-header">
             <div className="menu-container">
-                <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+                <button
+                    className="hamburger"
+                    id="react-burger-menu-btn"
+                    data-test="react-burger-menu-btn"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
                     <GiHamburgerMenu />
                 </button>
                 <div className={`side-panel ${menuOpen ? "open" : ""}`}>
@@ -45,11 +50,11 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className="title">
+            <div className="app_logo">
                 <img src={logo} width={150}></img>
             </div>
 
-            <button className="cart-btn">
+            <button className="shopping_cart_link" data-test="shopping-cart-link">
                 <Link to="/checkout">
                     <FaShoppingCart size={30} />
                 </Link>
