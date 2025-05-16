@@ -40,7 +40,7 @@ function Login() {
     return (
         <div className="login-container">
             <div className="login-info-container">
-                <img src={logo}></img>
+                <img className="login_logo" src={logo}></img>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -69,7 +69,14 @@ function Login() {
                         </h3>
                     )}
 
-                    <button className="blass-button success" type="submit" id="login-button" name="login-button" value="Login">
+                    <button
+                        className="blass-button success"
+                        type="submit"
+                        id="login-button"
+                        name="login-button"
+                        data-test="login-button"
+                        value="Login"
+                    >
                         Login
                     </button>
                 </form>

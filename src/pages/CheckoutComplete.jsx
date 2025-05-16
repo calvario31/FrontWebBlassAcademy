@@ -10,12 +10,22 @@ export default function CheckoutComplete() {
                 <h2 className="blass-title">Compra Completada</h2>
             </TitleBar>
             <div className="container">
-                <FiCheckCircle className="checkIcon" size={80} color="#1a4789" />
-                <h1>Gracias por su pedido!</h1>
-                <p className="subtitle">
-                    Su pedido ha sido enviado y llegará tan rápido como pueda llegar el poni.
+                <FiCheckCircle
+                    className="checkIcon"
+                    size={80}
+                    color="#1a4789"
+                    data-test="check-express"
+                />
+                <h1 data-test="complete-header">Gracias por su pedido!</h1>
+                <p className="subtitle" data-test="complete-subheader">
+                    Su pedido ha sido enviado y llegará tan rápido como pueda llegar.
                 </p>
-                <Link to="/dashboard" className="blass-button success">
+                <Link
+                    to="/dashboard"
+                    className="blass-button success"
+                    id="back-to-products"
+                    data-test="back-to-products"
+                >
                     Volver a Inicio
                 </Link>
             </div>
