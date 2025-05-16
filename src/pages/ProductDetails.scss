@@ -6,6 +6,8 @@
 }
 
 .back-button {
+  color: #1a4789;
+  font-weight: 500;
   align-self: flex-start;
   margin-left: 20px;
   background: none;
@@ -14,9 +16,17 @@
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 44px; 
+  height: 44px; 
+  border-radius: 50%;
+  border: solid 2px #1a4789;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     color: #045892;
+    background: #e6f1fa;
   }
 }
 
@@ -83,13 +93,6 @@
 
       .quantity-selector {
         margin-bottom: 1.5rem;
-
-        label {
-          display: block;
-          margin-bottom: 0.5rem;
-          font-weight: bold;
-          font-size: 1rem;
-        }
 
         .quantity-input {
           padding: 0.75rem;
