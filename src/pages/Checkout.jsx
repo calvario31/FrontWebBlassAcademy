@@ -36,9 +36,7 @@ export default function Checkout() {
 
     return (
         <div>
-            <TitleBar>
-                <h2 className="blass-title">Sus Datos</h2>
-            </TitleBar>
+            <TitleBar title={'Sus Datos'} />
             <div className="checkout-container">
                 <form className="checkout-form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="inputs-container">

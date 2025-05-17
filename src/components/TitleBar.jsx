@@ -1,9 +1,9 @@
 import "./TitleBar.scss";
 
-const TitleBar = ({ children }) => {
+const TitleBar = ({ title }) => {
     return (
         <div className="header-controls">
-            {children}
+            <h2 className="blass-title">{title}</h2>
         </div>
     );
 };

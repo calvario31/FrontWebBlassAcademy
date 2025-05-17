@@ -13,13 +13,15 @@ const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
 
-    const handleLogout = () => {
+    const handleLogout = (e) => {
+        e.preventDefault();
         clearCart();
         Cookies.remove("session-username");
         navigate("/login");
     };
 
-    const about = () => {
+    const about = (e) => {
+        e.preventDefault();
         window.open("https://linktr.ee/blassacademy", "_blank", "noopener,noreferrer");
     };
 
@@ -41,9 +43,16 @@ const Header = () => {
                                 <IoIosClose />
                             </button>
                             <ul>
-                                <li>All Items</li>
-                                <li onClick={about}>About</li>
-                                <li onClick={handleLogout}>Logout</li>
+                                <Link to={'/dashboard'}>
+                                    <li>All Items</li>
+                                </Link>
+                                <Link to={'https://linktr.ee/blassacademy'} onClick={about}>
+                                    <li >About</li>
+                                </Link>
+                                <Link to={'/login'}>
+                                    <li onClick={handleLogout}>Logout</li>
+                                </Link>
+
                             </ul>
                         </>
                     )}

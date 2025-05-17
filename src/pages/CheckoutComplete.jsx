@@ -6,9 +6,7 @@ import "./CheckoutComplete.scss";
 export default function CheckoutComplete() {
     return (
         <div>
-            <TitleBar>
-                <h2 className="blass-title">Compra Completada</h2>
-            </TitleBar>
+            <TitleBar title={'Compra Completada'} />
             <div className="container">
                 <FiCheckCircle
                     className="checkIcon"

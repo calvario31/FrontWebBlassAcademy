@@ -30,24 +30,23 @@ function Dashboard() {
 
     return (
         <div className="dashboard">
-            <TitleBar>
-                <h2 className="blass-title">Productos</h2>
-                <div className="select-container">
-                    <FaFilter className="select-icon filter-icon" />
-                    <select
-                        className="product_sort_container"
-                        data-test="product_sort_container"
-                        value={sortOption}
-                        onChange={(e) => setSortOption(e.target.value)}
-                    >
-                        <option value="name-asc">Name (A to Z)</option>
-                        <option value="name-desc">Name (Z to A)</option>
-                        <option value="price-asc">Precio: menor a mayor</option>
-                        <option value="price-desc">Precio: mayor a menor</option>
-                    </select>
-                    <RxTriangleDown className="select-icon arrow-icon" />
-                </div>
-            </TitleBar>
+            <TitleBar title={'Productos'}/>
+
+            <div className="select-container">
+                <FaFilter className="select-icon filter-icon" />
+                <select
+                    className="product_sort_container"
+                    data-test="product_sort_container"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                >
+                    <option value="name-asc">Name (A to Z)</option>
+                    <option value="name-desc">Name (Z to A)</option>
+                    <option value="price-asc">Precio: menor a mayor</option>
+                    <option value="price-desc">Precio: mayor a menor</option>
+                </select>
+                <RxTriangleDown className="select-icon arrow-icon" />
+            </div>
 
             <main
                 className="inventory_container"

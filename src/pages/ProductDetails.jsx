@@ -27,9 +27,7 @@ const ProductDetails = () => {
 
     return (
         <div className="page-container">
-            <TitleBar>
-                <h2 className="blass-title">Detalles del producto</h2>
-            </TitleBar>
+            <TitleBar title={'Detalles del producto'} />
 
             <div className="product-details-container">
                 <button
