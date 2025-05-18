@@ -43,15 +43,21 @@ const Header = () => {
                                 <IoIosClose />
                             </button>
                             <ul>
-                                <Link to={"/dashboard"}>
-                                    <li>All Items</li>
-                                </Link>
-                                <Link to={"https://linktr.ee/blassacademy"} onClick={about}>
-                                    <li>About</li>
-                                </Link>
-                                <Link to={"/login"}>
-                                    <li onClick={handleLogout}>Logout</li>
-                                </Link>
+                                <li>
+                                    <Link to={"/dashboard"}>
+                                        All Items
+                                    </Link>
+                                </li>
+                                <li>
+                                    <a href="https://linktr.ee/blassacademy" onClick={about} target="_blank" rel="noopener noreferrer">
+                                        About
+                                    </a>
+                                </li>
+                                <li onClick={handleLogout}>
+                                    <Link to={"/login"}>
+                                        Logout
+                                    </Link>
+                                </li>
                             </ul>
                         </>
                     )}
