@@ -20,7 +20,7 @@ export default function Checkout() {
         mode: "onSubmit",
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = () => {
         clearCart();
         navigate("/checkout-complete");
     };
@@ -38,7 +38,7 @@ export default function Checkout() {
         <div>
             <TitleBar title={"Sus Datos"} />
             <div className="checkout-container">
-                <form className="checkout-form" onSubmit={handleSubmit(onSubmit)}>
+                <form className="checkout-form">
                     <div className="inputs-container">
                         <input
                             type="text"
@@ -93,28 +93,27 @@ export default function Checkout() {
                             </button>
                         </h3>
                     )}
-
-                    <div className="buttons-container">
-                        <Link
-                            to="/dashboard"
-                            className="blass-button danger"
-                            data-test="cancel"
-                            id="cancel"
-                        >
-                            Cancelar
-                        </Link>
-                        <button
-                            type="submit"
-                            onClick={handleContinueClick}
-                            className="blass-button success"
-                            id="continue"
-                            data-test="continue"
-                            name="continue"
-                        >
-                            Continuar
-                        </button>
-                    </div>
                 </form>
+                <div className="buttons-container">
+                    <Link
+                        to="/dashboard"
+                        className="blass-button danger"
+                        data-test="cancel"
+                        id="cancel"
+                    >
+                        Cancelar
+                    </Link>
+                    <button
+                        type="button"
+                        onClick={handleContinueClick}
+                        className="blass-button success"
+                        id="continue"
+                        data-test="continue"
+                        name="continue"
+                    >
+                        Continuar
+                    </button>
+                </div>
             </div>
         </div>
     );
