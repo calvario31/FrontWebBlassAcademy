@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoIosClose } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logos/logoRectangular.png";
-import { useCart } from "../context/CartContex";
+import { useCart } from "../context/CartContext";
 import "./Header.scss";
 
 const Header = () => {
@@ -43,16 +43,15 @@ const Header = () => {
                                 <IoIosClose />
                             </button>
                             <ul>
-                                <Link to={'/dashboard'}>
+                                <Link to={"/dashboard"}>
                                     <li>All Items</li>
                                 </Link>
-                                <Link to={'https://linktr.ee/blassacademy'} onClick={about}>
-                                    <li >About</li>
+                                <Link to={"https://linktr.ee/blassacademy"} onClick={about}>
+                                    <li>About</li>
                                 </Link>
-                                <Link to={'/login'}>
+                                <Link to={"/login"}>
                                     <li onClick={handleLogout}>Logout</li>
                                 </Link>
-
                             </ul>
                         </>
                     )}

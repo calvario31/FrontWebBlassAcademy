@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import TitleBar from "../components/TitleBar";
 import { dataErrors } from "../constants/constants";
-import { useCart } from "../context/CartContex";
+import { useCart } from "../context/CartContext";
 import "./Checkout.scss";
 
 export default function Checkout() {
@@ -36,7 +36,7 @@ export default function Checkout() {
 
     return (
         <div>
-            <TitleBar title={'Sus Datos'} />
+            <TitleBar title={"Sus Datos"} />
             <div className="checkout-container">
                 <form className="checkout-form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="inputs-container">

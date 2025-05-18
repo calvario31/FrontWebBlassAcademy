@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useCart } from "../context/CartContex";
+import { useCart } from "../context/CartContext";
 import "./ProductDetails.scss";
 import { items as initialItems } from "../constants/constants";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import TitleBar from "../components/TitleBar";
 import { IoArrowBackCircle } from "react-icons/io5";
 
@@ -27,7 +25,7 @@ const ProductDetails = () => {
 
     return (
         <div className="page-container">
-            <TitleBar title={'Detalles del producto'} />
+            <TitleBar title={"Detalles del producto"} />
 
             <div className="product-details-container">
                 <button

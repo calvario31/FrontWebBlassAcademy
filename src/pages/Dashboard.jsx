@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { FaFilter, FaChevronDown } from "react-icons/fa";
+import { FaFilter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import { items as initialItems } from "../constants/constants";
-import { useCart } from "../context/CartContex";
+import { useCart } from "../context/CartContext";
 import "./Dashboard.scss";
 import TitleBar from "../components/TitleBar";
-import { TbTriangleInvertedFilled } from "react-icons/tb";
 import { RxTriangleDown } from "react-icons/rx";
 
 function Dashboard() {
@@ -30,7 +27,7 @@ function Dashboard() {
 
     return (
         <div className="dashboard">
-            <TitleBar title={'Productos'}/>
+            <TitleBar title={"Productos"} />
 
             <div className="select-container">
                 <FaFilter className="select-icon filter-icon" />
