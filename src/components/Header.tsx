@@ -8,19 +8,19 @@ import logo from "../assets/logos/logoRectangular.png";
 import { useCart } from "../context/CartContext";
 import "./Header.scss";
 
-const Header = () => {
+const Header: React.FC<any>  = () => {
     const { cartItems, clearCart } = useCart();
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
 
-    const handleLogout = (e) => {
+    const handleLogout = (e: any) => {
         e.preventDefault();
         clearCart();
         Cookies.remove("session-username");
         navigate("/login");
     };
 
-    const about = (e) => {
+    const about = (e: any) => {
         e.preventDefault();
         window.open("https://linktr.ee/blassacademy", "_blank", "noopener,noreferrer");
     };

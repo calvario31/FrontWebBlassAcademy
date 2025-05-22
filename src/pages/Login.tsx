@@ -5,13 +5,13 @@ import logo from "../assets/logos/logoBlassAcademyLetra.png";
 import Cookies from "js-cookie";
 import { users, masterPassword, loginErrors } from "../constants/constants";
 
-function Login() {
+const Login: React.FC<any> = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    function handleSubmit(e) {
+    function handleSubmit(e: any) {
         e.preventDefault();
         if (username === "" && password === "") {
             //ambos vacios

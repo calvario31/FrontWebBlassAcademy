@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import "./Layout.scss"
 
-export default function LayoutRoute() {
+const LayoutRoute: React.FC<any>  = () => {
   return (
     <div className="layout-container">
       <Header />
@@ -14,3 +14,5 @@ export default function LayoutRoute() {
     </div>
   );
 }
+
+export default LayoutRoute;

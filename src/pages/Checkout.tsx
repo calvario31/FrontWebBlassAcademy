@@ -5,7 +5,7 @@ import { dataErrors } from "../constants/constants";
 import { useCart } from "../context/CartContext";
 import "./Checkout.scss";
 
-export default function Checkout() {
+const Checkout: React.FC<any> = () => {
     const { clearCart } = useCart();
 
     const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function Checkout() {
         navigate("/checkout-complete");
     };
 
-    const handleContinueClick = async (e) => {
+    const handleContinueClick = async (e: any) => {
         e.preventDefault();
         const isValid = await trigger();
 
@@ -42,7 +42,6 @@ export default function Checkout() {
                     <div className="inputs-container">
                         <input
                             type="text"
-                            name="nombre"
                             id="first-name"
                             data-test="firstName"
                             placeholder="Nombre"
@@ -54,7 +53,6 @@ export default function Checkout() {
 
                         <input
                             type="text"
-                            name="apellido"
                             id="last-name"
                             data-test="lastName"
                             placeholder="Apellido"
@@ -66,7 +64,6 @@ export default function Checkout() {
 
                         <input
                             type="email"
-                            name="email"
                             id="email"
                             data-test="email"
                             placeholder="Correo electrónico"
@@ -84,9 +81,9 @@ export default function Checkout() {
                     {Object.keys(errors).length > 0 && (
                         <h3 className="error-box" data-test="error">
                             <span>
-                                {errors.nombre?.message.toString() ||
-                                    errors.apellido?.message.toString() ||
-                                    errors.email?.message.toString()}
+                                {errors.nombre?.message?.toString() ||
+                                    errors.apellido?.message?.toString() ||
+                                    errors.email?.message?.toString()}
                             </span>
                             <button className="close-btn" onClick={() => clearErrors()}>
                                 ×
@@ -118,3 +115,5 @@ export default function Checkout() {
         </div>
     );
 }
+
+export default Checkout;

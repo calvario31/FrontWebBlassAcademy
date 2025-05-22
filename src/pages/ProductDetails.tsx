@@ -6,11 +6,11 @@ import { items as initialItems } from "../constants/constants";
 import TitleBar from "../components/TitleBar";
 import { IoArrowBackCircle } from "react-icons/io5";
 
-const ProductDetails = () => {
+const ProductDetails: React.FC<any> = () => {
     const { addToCart, isInCart, removeFromCart } = useCart();
     const { productId } = useParams();
     const navigate = useNavigate();
-    const [product, setProduct] = useState(null);
+    const [product, setProduct] = useState<any>(null);
 
     useEffect(() => {
         const foundProduct = initialItems.find((item) => encodeURIComponent(item.id) === productId);

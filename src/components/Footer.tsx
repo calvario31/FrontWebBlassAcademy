@@ -1,6 +1,6 @@
 import "./Footer.scss";
 
-const Footer = () => {
+const Footer: React.FC<any>  = () => {
     return (
         <footer className="dashboard-footer">
             <div className="footer-content">

@@ -1,24 +1,24 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, ReactNode } from 'react';
 
-const CartContext = createContext();
+const CartContext = createContext<any>(null);
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }: { children: ReactNode }) => {
     const [cartItems, setCartItems] = useState(() => {
         try {
-            return localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+            return localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart") || "[]") : [];
         } catch {
             return [];
         }
     });
 
-    const addToCart = (product) => {
+    const addToCart = (product: any) => {
         const newCartItems = [...cartItems, product];
         setCartItems(newCartItems);
         localStorage.setItem("cart", JSON.stringify(newCartItems));
     };
 
-    const removeFromCart = (product) => {
-        const index = cartItems.findIndex((item) => item.name === product.name);
+    const removeFromCart = (product: any) => {
+        const index = cartItems.findIndex((item: any) => item.name === product.name);
         if (index !== -1) {
             const newCartItems = [...cartItems];
             newCartItems.splice(index, 1);
@@ -27,8 +27,8 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const isInCart = (product) => {
-        return cartItems.some((item) => item.name === product.name);
+    const isInCart = (product: any) => {
+        return cartItems.some((item: any) => item.name === product.name);
     };
 
     const clearCart = () => {

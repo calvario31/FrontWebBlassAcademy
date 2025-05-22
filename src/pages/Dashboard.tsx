@@ -7,7 +7,7 @@ import "./Dashboard.scss";
 import TitleBar from "../components/TitleBar";
 import { RxTriangleDown } from "react-icons/rx";
 
-function Dashboard() {
+const Dashboard: React.FC<any> = () => {
     const { addToCart, isInCart, removeFromCart } = useCart();
     const [sortOption, setSortOption] = useState("name-asc");
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TitleBar from "../components/TitleBar";
 import "./CheckoutComplete.scss";
 
-export default function CheckoutComplete() {
+const CheckoutComplete: React.FC<any> = () => {
     return (
         <div>
             <TitleBar title={'Compra Completada'} />
@@ -30,3 +30,5 @@ export default function CheckoutComplete() {
         </div>
     );
 }
+
+export default CheckoutComplete;
