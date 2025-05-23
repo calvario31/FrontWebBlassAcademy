@@ -1,12 +1,37 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Proyecto Web de Blass Academy
 
-Currently, two official plugins are available:
+Proyecto de Blass Academy para uso de Web Automation 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requerimientos
 
-## Expanding the ESLint configuration
+* Instalar Node:
+  * [Link Oficial](https://nodejs.org/en/download)
+  * [Guía para Windows](https://www.youtube.com/watch?v=M_veZSGIX_w)
+  * [Guía para MacOS](https://www.youtube.com/watch?v=CDcf1sJZTlE)
+* Instalar VSCode:
+  * [Link Oficial](https://code.visualstudio.com/download)
+  * [Guía para Windows](https://www.youtube.com/watch?v=FwOJXIN2_po)
+  * [Guía para MacOS](https://www.youtube.com/watch?v=A84-F-JWb2g)
+* Opcional: tener instalado/configurado git para clonar el proyecto
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instalación
+
+1. Descargar (si no tienen git) o clonar el proyecto (con git)
+2. Abrir el proyecto con vscode
+3. Abrir la terminal de vscode 
+4. Instalar las dependencias con:
+
+```bash
+  npm ci
+```     
+    
+## Ejecución
+
+Abrir la terminal de VSCode
+Escribir el siguiente comando para ejecutar el servidor:
+
+```bash
+  npm run start
+```
+    
